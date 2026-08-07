@@ -1,0 +1,43 @@
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.next=None
+        
+class Stack:
+    def __init__(self):
+        self.top=None
+    def is_empty(self):
+        return None
+    def push(self,data):
+        new_node=Node(data)
+        new_node.next=self.top
+        self.top=new_node
+    def pop(self):
+        if self.is_empty():
+            return None      
+        popped_data=self.top.data
+        self.top=self.top.next
+        return popped_data
+    def peek(self):
+        if self.is_empty():
+            return None
+        return self.top.data
+s=Stack()
+s.push("life is Mysterious")
+s.push("A man with power")
+s.push("just a minute")
+while True:
+    choice=int(input("Enter the choice(1-4):"))
+    if choice==1:
+        a=input("Enter a book title to push:")
+        s.push(a)
+        print("The book title is pushed successfully!!!")
+    elif choice==2:
+        print("popped:",s.pop())
+    elif choice==3:
+        print("The top book is:",s.peek())
+    elif choice==4:
+        print("The program is Ended")
+        break
+    else:
+        print("Invalid input")
